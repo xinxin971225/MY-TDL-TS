@@ -5,6 +5,7 @@ type TupleToObject<T extends readonly (string | number | symbol)[]> = {
 const tuple = ["tesla", "model 3", "model X", "model Y"] as const;
 // keyof array  -> 索引
 type r = TupleToObject<typeof tuple>;
+// const r = typeof tuple
 
 // js
 
