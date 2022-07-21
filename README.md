@@ -3,6 +3,7 @@
 根据问题炼ts
 [antfu的ts题库](https://github.com/type-challenges/type-challenges)
 
+[题解](https://wangtunan.github.io/blog/typescript/challenge.html#%E5%86%85%E7%BD%AEomit-%E7%A7%BB%E9%99%A4)
 ## 环境搭建
 
 pnpm add typescript 
@@ -26,3 +27,5 @@ npx tsc init
 - 两个union之间extends 会依次对比每一个值并返回一个新的union
 - 虽然extends作为参数约束的时候，内部的一些内容无法直接引用，但可以在条件判断的时候再声明一次，去infer你需要的变量
 - unknow 不做类型缩窄 属于一种类型 ； any 不做类型检测
+- & -> 与｜类似，用于merge obj 或者函数 
+- 函数参数可以直接用 = 设置默认值
