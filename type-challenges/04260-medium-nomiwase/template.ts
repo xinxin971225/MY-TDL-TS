@@ -2,12 +2,12 @@ type stringToUnion<S extends string> = S extends `${infer F}${infer P}`
   ? F | stringToUnion<P>
   : "";
 
-type Combination<S extends string, U extends string = "", K = S> = [S] extends [
-  never
-]
+type CurCombination<S extends string, U extends string = "", K = S> = [
+  S
+] extends [never]
   ? U
   : K extends S
-  ? Combination<Exclude<S, K>, U | `${U}${K}`>
+  ? CurCombination<Exclude<S, K>, U | `${U}${K}`>
   : U;
 
 // 'a'|'b'|'c' ''
@@ -23,4 +23,4 @@ type Combination<S extends string, U extends string = "", K = S> = [S] extends [
 // 'a' ''| 'c'|{''|'c'}{'a'}
 // 'b' ''| 'c'|{''|'c'}{'b'}
 
-type AllCombinations<S extends string> = Combination<StringToUnion<S>>;
+type AllCombinations<S extends string> = CurCombination<StringToUnion<S>>;
